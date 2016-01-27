@@ -25,8 +25,6 @@ sunaarashi
 
 ## Options
 
-* `-o, --output=FILE`	
-出力するイメージのファイル名を指定します。デフォルトでは`out.jpg`です。
 * `-q, --quality=[1-100]`	
 jpegフォーマットでの圧縮レベルを調整します。デフォルトでは`100`です。
 * `-w, --width=PIXEL`	
@@ -42,6 +40,13 @@ jpegフォーマットでの圧縮レベルを調整します。デフォルト�
 
 
 ちなみに、ヘッダのイメージは`-r 84 -g 128 -b 32 -w 856 -h 512`で生成しました。
+
+
+## Usage
+
+```shellsession
+% sunaarashi -r 96 -g 128 -b 16 -w 1500 -h 500 output.jpg
+```
 
 
 ## License

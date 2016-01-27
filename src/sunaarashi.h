@@ -14,7 +14,6 @@
 #define SUNAARASHI_H
 
 typedef struct  {
-    short   oflag;  /* output filename */
     short   qflag;  /* quality */
     short   wflag;  /* width */
     short   hflag;  /* height */
