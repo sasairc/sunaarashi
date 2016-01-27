@@ -27,11 +27,10 @@ void print_usage(void)
 {
     fprintf(stdout, "\
 %s %d.%d.%d%s, generate random noise\n\
-Usage: clangsay [OPTION]...\n\
+Usage: sunaarashi [OPTION]... outfile\n\
 \n\
 Mandatory arguments to long options are mandatory for short options too.\n\
 \n\
-  -o,  --output=FILE         output filename [DEFAULT: out.jpg]\n\
   -q,  --quality=INT         jpeg compress quality\n\
   -w,  --width=PIXEL         output image size (width)\n\
   -h,  --height=PIXEL        output image size (height)\n\
