@@ -29,11 +29,10 @@ int main(int argc, char* argv[])
     FILE*   fp      = NULL;
 
     sand_t  st      = {
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL,
     };
 
     struct option   opts[] = {
-        {"output",  required_argument,  NULL,   'o'},
         {"quality", required_argument,  NULL,   'q'},
         {"width",   required_argument,  NULL,   'w'},
         {"height",  required_argument,  NULL,   'h'},
@@ -45,12 +44,8 @@ int main(int argc, char* argv[])
         {0, 0, 0, 0},
     };
 
-    while ((res = getopt_long(argc, argv, "q:o:w:h:r:g:b:", opts, &index)) != -1) {
+    while ((res = getopt_long(argc, argv, "q:w:h:r:g:b:", opts, &index)) != -1) {
         switch (res) {
-            case    'o':
-                st.oarg = optarg;
-                st.oflag = 1;
-                break;
             case    'q':
                 if (strisdigit_with_maxvalue(optarg, 100) < 0) {
                     fprintf(stderr, "%s: %s: invalid quality value\n",
@@ -122,8 +117,14 @@ int main(int argc, char* argv[])
         }
     }
 
-    if (st.oflag == 0)
-        st.oarg = DEFAULT_FNAME;
+    if (optind == argc) {
+        fprintf(stderr, "%s: missing file operand\n",
+                PROGNAME);
+
+        return 1;
+    } else {
+        st.oarg = argv[optind];
+    }
     if (st.qflag == 0)
         st.qarg = DEFAULT_QUAL;
     if (st.wflag == 0)
